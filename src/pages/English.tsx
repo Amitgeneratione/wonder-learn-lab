@@ -43,9 +43,12 @@ const English = () => {
                 <p className="text-muted-foreground mb-4">{activity.description}</p>
                 <Button 
                   className="bg-english hover:bg-english/90"
-                  onClick={() => toast.success(`Starting ${activity.title}! 🎉`, {
-                    description: "Get ready to learn and have fun!"
-                  })}
+                  onClick={() => {
+                    console.log(`Button clicked: ${activity.title}`);
+                    toast.success(`Starting ${activity.title}! 🎉`, {
+                      description: "Get ready to learn and have fun!"
+                    });
+                  }}
                 >
                   Start Activity
                 </Button>
