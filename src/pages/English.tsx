@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, BookOpen, Pencil, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import englishIcon from "@/assets/english-icon.jpg";
 
 const English = () => {
@@ -40,7 +41,14 @@ const English = () => {
                 <Icon className="w-12 h-12 mb-4 text-english" />
                 <h3 className="text-xl font-bold mb-2">{activity.title}</h3>
                 <p className="text-muted-foreground mb-4">{activity.description}</p>
-                <Button className="bg-english hover:bg-english/90">Start Activity</Button>
+                <Button 
+                  className="bg-english hover:bg-english/90"
+                  onClick={() => toast.success(`Starting ${activity.title}! 🎉`, {
+                    description: "Get ready to learn and have fun!"
+                  })}
+                >
+                  Start Activity
+                </Button>
               </Card>
             );
           })}
