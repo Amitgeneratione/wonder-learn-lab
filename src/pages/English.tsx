@@ -44,7 +44,8 @@ const English = () => {
                 <Button 
                   className="bg-english hover:bg-english/90"
                   onClick={() => {
-                    console.log(`Button clicked: ${activity.title}`);
+                    console.log(`🎯 Button clicked: ${activity.title}`);
+                    alert(`Button clicked! Starting ${activity.title}`);
                     toast.success(`Starting ${activity.title}! 🎉`, {
                       description: "Get ready to learn and have fun!"
                     });

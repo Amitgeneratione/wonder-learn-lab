@@ -43,9 +43,13 @@ const CriticalThinking = () => {
                 <p className="text-muted-foreground mb-4">{activity.description}</p>
                 <Button 
                   className="bg-critical hover:bg-critical/90"
-                  onClick={() => toast.success(`Starting ${activity.title}! 🎉`, {
-                    description: "Get ready to learn and have fun!"
-                  })}
+                  onClick={() => {
+                    console.log(`🎯 Button clicked: ${activity.title}`);
+                    alert(`Button clicked! Starting ${activity.title}`);
+                    toast.success(`Starting ${activity.title}! 🎉`, {
+                      description: "Get ready to learn and have fun!"
+                    });
+                  }}
                 >
                   Start Activity
                 </Button>
