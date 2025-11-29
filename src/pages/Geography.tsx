@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import VideoPlayer from "@/components/VideoPlayer";
+import { geographyVideoContent } from "@/data/videoContent";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Globe, Map, Compass } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,6 +8,7 @@ import { toast } from "sonner";
 import geographyIcon from "@/assets/geography-icon.jpg";
 
 const Geography = () => {
+  const { title, videoUrl, questions } = geographyVideoContent;
   const activities = [
     { title: "World Explorer", icon: Globe, description: "Learn about different countries and cultures!" },
     { title: "Map Reading", icon: Map, description: "Master map skills and navigation!" },
@@ -32,6 +35,13 @@ const Geography = () => {
       </div>
 
       <div className="container mx-auto px-4 py-12">
+        <h2 className="text-3xl font-bold mb-8">Video Lecture</h2>
+        <VideoPlayer
+          title={title}
+            videoUrl={videoUrl}
+            questions={questions}
+        />
+        <div className="my-12 border-t border-gray-200"></div>
         <h2 className="text-3xl font-bold mb-8">Learning Activities</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {activities.map((activity) => {

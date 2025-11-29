@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import VideoPlayer from "@/components/VideoPlayer";
+import { mathsVideoContent } from "@/data/videoContent";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Calculator, Shapes, PieChart } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,6 +8,7 @@ import { toast } from "sonner";
 import mathsIcon from "@/assets/maths-icon.jpg";
 
 const Maths = () => {
+  const { title, videoUrl, questions } = mathsVideoContent;
   const activities = [
     { title: "Number Magic", icon: Calculator, description: "Practice addition, subtraction, and more!" },
     { title: "Shape Explorer", icon: Shapes, description: "Learn about shapes and patterns!" },
@@ -32,6 +35,13 @@ const Maths = () => {
       </div>
 
       <div className="container mx-auto px-4 py-12">
+        <h2 className="text-3xl font-bold mb-8">Video Lecture</h2>
+        <VideoPlayer
+          title={title}
+            videoUrl={videoUrl}
+            questions={questions}
+        />
+        <div className="my-12 border-t border-gray-200"></div>
         <h2 className="text-3xl font-bold mb-8">Learning Activities</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {activities.map((activity) => {

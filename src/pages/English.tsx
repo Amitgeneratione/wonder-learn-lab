@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import VideoPlayer from "@/components/VideoPlayer";
+import { englishVideoContent } from "@/data/videoContent";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, BookOpen, Pencil, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,6 +8,7 @@ import { toast } from "sonner";
 import englishIcon from "@/assets/english-icon.jpg";
 
 const English = () => {
+  const { title, videoUrl, questions } = englishVideoContent;
   const activities = [
     { title: "Reading Practice", icon: BookOpen, description: "Improve your reading skills with fun stories!" },
     { title: "Writing Fun", icon: Pencil, description: "Learn to write amazing sentences and stories!" },
@@ -32,6 +35,13 @@ const English = () => {
       </div>
 
       <div className="container mx-auto px-4 py-12">
+        <h2 className="text-3xl font-bold mb-8">Video Lecture</h2>
+        <VideoPlayer
+          title={title}
+            videoUrl={videoUrl}
+            questions={questions}
+        />
+        <div className="my-12 border-t border-gray-200"></div>
         <h2 className="text-3xl font-bold mb-8">Learning Activities</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {activities.map((activity) => {
