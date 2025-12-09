@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/wonder-learn-lab">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/english" element={<English />} />
